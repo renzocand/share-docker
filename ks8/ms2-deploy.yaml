@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms2-deployment
+  labels:
+    app: ms2
+spec:
+  selector:
+    matchLabels:
+      app: ms2
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ms2
+    spec:
+      containers:
+      - name: ms2
+        image: ms2:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3002
