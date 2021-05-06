@@ -1,26 +1,23 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const axios = require('axios');
 const router = Router();
 
-router.get('/', (req,res)=>{
+router.get('/', async (req, res) => {
     const server = 'ms1-service';
-    const url ='http://'+ server;
+    const url = 'http://' + server;
+    try {
+        let respuesta = await axios.get(url);
+        return res.json({
+            ubicacion: 'ms2',
+            mensaje: respuesta.data
+        })
 
-    return axios.get(url)
-    .then(response => {
+    } catch (error) {
         return res.json({
-            ubicacion:'ms2',
-            mensaje: response
-        }) 
-    })
-    .catch(error => {
-        return res.json({
-            ubicacion:'ms2',
+            ubicacion: 'ms2',
             mensaje: error
-        }) 
-    });
-   
+        })
+    }
 })
-
 
 module.exports = router;
