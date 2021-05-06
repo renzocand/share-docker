@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: ms2
-  replicas: 3
+  replicas: 2
   strategy:
     type: RollingUpdate
   template:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: ms2
-        image: ms2:latest
+        image:  renzocand/ms2
         imagePullPolicy: Always
         ports:
-        - containerPort: 3002
+        - containerPort: 3001
