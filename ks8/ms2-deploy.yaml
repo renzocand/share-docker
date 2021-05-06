@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: ms2
-        image:  renzocand/ms2
+        image:  renzocand/ms2:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 3001
+        - containerPort: 3000
