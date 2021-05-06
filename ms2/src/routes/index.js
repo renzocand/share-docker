@@ -3,7 +3,7 @@ const axios = require('axios');
 const router = Router();
 
 router.get('/', (req,res)=>{
-    const server = 'localhost';
+    const server = 'ms1-service';
     const url ='http://'+ server;
 
     return axios.get(url)
